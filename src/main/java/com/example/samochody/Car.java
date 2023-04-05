@@ -9,16 +9,16 @@ public class Car {
 
     private  String color;
 
-    private LocalDate productionYear;
+    private LocalDate productionDate;
 
     public Car() {
     }
 
-    public Car(long id, String model, String color ,LocalDate productionYear) {
+    public Car(long id, String model, String color ,LocalDate productionDate) {
         this.id = id;
         this.model = model;
         this.color = color;
-        this.productionYear = productionYear;
+        this.productionDate = productionDate;
     }
 
     public long getId() {
@@ -37,12 +37,12 @@ public class Car {
         this.model = model;
     }
 
-    public LocalDate getProductionYear() {
-        return this.productionYear;
+    public LocalDate getProductionDate() {
+        return this.productionDate;
     }
 
-    public void setProductionYear(LocalDate productionYear) {
-        this.productionYear = productionYear;
+    public void setProductionDate(LocalDate productionDate) {
+        this.productionDate = productionDate;
     }
 
     public String getColor() {

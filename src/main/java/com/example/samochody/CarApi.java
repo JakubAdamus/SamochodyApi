@@ -32,17 +32,28 @@ public class CarApi {
     }
 
     @PostMapping
-    public boolean addVideo(@RequestBody Car car) {
+    public boolean addCar(@RequestBody Car car) {
         return cars.add(car);
     }
 
     @PutMapping
-    public boolean updateVideo(@RequestBody Car car) {
-        return cars.add(car);
+    public boolean updateCar(@RequestBody Car updatedCar) {
+        Optional<Car> optionalCar = cars.stream()
+                .filter(car -> car.getId() == updatedCar.getId())
+                .findFirst();
+        if (optionalCar.isPresent()) {
+            Car car = optionalCar.get();
+            car.setModel(updatedCar.getModel());
+            car.setColor(updatedCar.getColor());
+            car.setProductionDate(updatedCar.getProductionDate());
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @DeleteMapping
-    public boolean deleteVideo(@RequestParam int index) {
+    public boolean deleteCar(@RequestParam int index) {
         return cars.removeIf(element->element.getId()==index);
     }
 }
